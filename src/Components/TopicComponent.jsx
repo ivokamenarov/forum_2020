@@ -5,11 +5,14 @@ import {fetchTopicData} from '../Services/API'
 
 export default (props) => {
     const {loading, data} = useFetchData(fetchTopicData(props.match.params.topicId))
-    let title =''
-    if (data && data.data) title= data.data.title
     return <>
-        {loading ? <CircularProgress/> :
-            <h1>{title}</h1>
+        {loading && <CircularProgress/>}
+        {!loading && data.data &&
+            <>
+                <h1>{data.data.title}</h1>
+                <p>{data.data.description}</p>
+                {/* <ListReplies replies={data.data.replies} /> */}
+            </>
         }
         </>
 }

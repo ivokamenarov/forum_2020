@@ -19,4 +19,27 @@ const topics = [
     }
 ]
 
+exports.addTopic = (topic) => {
+    const id = topics.length + 1
+    topics.push({
+        id,
+        ...topic,
+        createdBy: 'pesho',
+        modifiedBy: 'pesho',
+        createdAt: '01 Jan 2020 00:00:00 GMT',
+        modifiedAt: new Date().toUTCString(),
+        replies: [
+            {
+                id: 1,
+                text: topic.reply,
+                createdBy: 'pesho',
+                modifiedBy: 'pesho',
+                createdAt: '01 Jan 2020 00:00:00 GMT',
+                modifiedAt: new Date().toUTCString()
+            }
+        ]
+    })
+    return id
+}
+
 exports.topics = topics

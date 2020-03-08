@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {topics} from './data'
+import {topics, addTopic} from './data'
 const instance = axios.create({
     baseURL: 'http://localhost:8082/api'
 });
@@ -35,7 +35,7 @@ const fetchAllTopics = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve({data: topics})
-        }, 3000)
+        }, 1000)
     })
 }
 
@@ -45,7 +45,16 @@ const fetchTopicData = (topicId) => {
             const id = parseInt(topicId)
             const topic = topics.filter(t => t.id === id)[0]
             resolve({data: topic})
-        }, 3000)
+        }, 1000)
+    })
+}
+
+const createTopic = (topic) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const topicId = addTopic(topic)
+            resolve({data: {topicId}})
+        }, 1000)
     })
 }
 
@@ -54,5 +63,6 @@ export {
     createUser,
     loginUser,
     fetchAllTopics,
-    fetchTopicData
+    fetchTopicData,
+    createTopic
 }

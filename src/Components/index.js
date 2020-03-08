@@ -4,6 +4,7 @@ import NavBar from './NavBarComponent'
 import SignUp from './SignUpComponent'
 import Login from './LoginComponent'
 import Topic from './TopicComponent'
+import AddTopic from './AddTopicComponent'
 
 export {
     Home,
@@ -11,5 +12,6 @@ export {
     NavBar,
     SignUp,
     Login,
-    Topic
+    Topic,
+    AddTopic
 }
