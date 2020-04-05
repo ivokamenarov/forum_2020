@@ -33,8 +33,9 @@ const FormLogin = (props) => {
         setLoading(true)
         loginUser(user)
             .then(res => {
-                localStorage.setItem('access_token', res.token)
-                localStorage.setItem('user', username)
+                console.log(res)
+                localStorage.setItem('access_token', res.data.access_token)
+                localStorage.setItem('refresh_token', res.data.refresh_token)
                 setLoading(false)
                 history.push('/')
             })

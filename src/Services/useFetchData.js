@@ -1,12 +1,12 @@
 import {useState, useEffect } from 'react'
 
-const useFetchData = (func) => {
+const useFetchData = (func, ...args) => {
     const [data, setData] = useState({})
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setLoading(true)
-        func
+        func(...args)
         .then(res => {
             setData({
                 status: 'ok',

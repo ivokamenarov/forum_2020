@@ -7,9 +7,32 @@ POST http://localhost:8082/api/users HTTP/1.1
 content-type: application/json
 
 {
-    "username": "gosho",
-    "password": "123",
+    "username": "ivo",
+    "password": "ivo",
     "firstName": "Gosho",
     "lastName": "Petrov",
-    "role": "user"
+    "role": "USER"
+}
+
+###
+POST http://localhost:8082/oauth/token?grant_type=password&password=ivo&username=admin
+Authorization: Basic trusted:secret
+
+###
+POST http://localhost:8082/oauth/token?grant_type=refresh_token&refresh_token=69979cfd-1e61-435a-8e93-1a2d747ed130
+Authorization: Basic trusted:secret
+
+
+###
+GET http://localhost:8082/api/topics
+Authorization: Bearer 793da9a1-70ee-4582-92d3-088ad8c8e20f
+
+###
+POST http://localhost:8082/api/topics
+Authorization: Bearer b82a289f-6d7b-4033-8d40-7a0aceea6126
+content-type: application/json
+
+{
+    "title": "Test22",
+    "userId": "1"
 }

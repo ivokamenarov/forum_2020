@@ -4,7 +4,7 @@ import useFetchData from '../Services/useFetchData'
 import {fetchTopicData} from '../Services/API'
 
 export default (props) => {
-    const {loading, data} = useFetchData(fetchTopicData(props.match.params.topicId))
+    const {loading, data} = useFetchData(fetchTopicData, props.match.params.topicId)
     return <>
         {loading && <CircularProgress/>}
         {!loading && data.data &&

@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 
 export default (props) => {
   const classes = useStyles();
-  const { data, loading } = useFetchData(fetchAllTopics())
+  const { data, loading } = useFetchData(fetchAllTopics)
 
   return <>
     <Button to='/topics/add' component={Link} >Add Topic</Button>

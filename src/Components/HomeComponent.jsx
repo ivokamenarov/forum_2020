@@ -4,7 +4,7 @@ import AllTopics from './AllTopicsComponent'
 const HomeComponent = (props) => {
     const username = localStorage.getItem('user')
     return <>
-            <h1>Hello, {username}</h1>
+            <h1>{process.env.REACT_APP_TEST}, {username}</h1>
             <AllTopics />
         </>
 }

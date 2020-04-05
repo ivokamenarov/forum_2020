@@ -31,7 +31,7 @@ export default (props) => {
             replyText: reply
         }
         createTopic(topic)
-            .then((res) => history.push(`/topics/${res.data.topicId}`))
+            .then((res) => history.push(`/topics/${res.data.id}`))
             .catch((error) => console.log('Error: ', error))
     }
     return (
